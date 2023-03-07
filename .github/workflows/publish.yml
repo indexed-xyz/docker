@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - "main"
-      - "mike/finish-docs-and-push-to-docker-hub" # To test this workflow, remove before merging to `main`
 
 jobs:
   docker:
