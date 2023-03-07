@@ -1,26 +1,43 @@
-# Getting Started
+# Getting Started - Docker
 
 A Docker environment to get started with [indexed.xyz](https://www.indexed.xyz).
 
-TODO: Document usage once the Docker image is deployed to the correct Docker organization.
+Start syncing data:
 
 ```
-docker run -v $(pwd):/var/opt/indexed-xyz -it ???/indexed.xyz:latest ...
+docker run -v $(pwd):/var/opt/indexed-xyz -it goldskycom/indexed.xyz:latest goldsky indexed sync decoded-logs
 ```
 
-## Build
+Processed data is available in a `./data` directory in your current working directory.
+
+To learn more about the available commands, please run the following:
 
 ```
-docker build -t indexed.xyz:latest .
+docker run -v $(pwd):/var/opt/indexed-xyz -it goldskycom/indexed.xyz:latest goldsky indexed --help
 ```
 
-## Start a container and access it
+## DuckDB
+
+Synced data (see previous chapter) can be queried with [DuckDB](https://duckdb.org/) (or any tool of your choice that processes `.parquet` files):
 
 ```
-docker run -it indexed.xyz bash
+docker run -v $(pwd):/var/opt/indexed-xyz -it goldskycom/indexed.xyz:latest duckdb
 ```
 
-## Deploy
+## Development
 
-TODO
+### Build
 
+```
+docker build -t goldskycom/indexed.xyz:latest .
+```
+
+### Start a container and access it
+
+```
+docker run -it goldskycom/indexed.xyz:latest bash
+```
+
+### Deploy
+
+When a pull request is merged into the `main` branch, a GitHub workflow automatically publishes a new `latest` Docker image tag to the Ducker Hub.
