@@ -1,7 +1,4 @@
-# FROM ubuntu:22.04
 FROM node:18-bullseye-slim
-
-# VOLUME /indexed-xyz
 
 RUN apt-get update && \
   apt-get -y install --no-install-recommends \
@@ -17,8 +14,6 @@ RUN wget -q https://github.com/duckdb/duckdb/releases/download/v0.7.1/duckdb_cli
 RUN npm --silent i -g @goldskycom/cli
 
 WORKDIR /var/opt/indexed-xyz
-
-# ENTRYPOINT ["goldsky", "indexed"]
 
 RUN echo "DuckDB CLI version: `duckdb --version`" && \
   echo "Goldsky CLI version: `goldsky -v`"
