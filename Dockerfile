@@ -11,7 +11,7 @@ RUN wget -q https://github.com/duckdb/duckdb/releases/download/v0.7.1/duckdb_cli
   unzip ~/duckdb-cli.zip -d /usr/local/bin/ && \
   rm ~/duckdb-cli.zip
 
-RUN npm --silent i -g @goldskycom/cli
+RUN npm --silent i -g @goldsky/cli
 
 WORKDIR /var/opt/indexed-xyz
 
