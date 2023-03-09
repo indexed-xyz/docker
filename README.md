@@ -5,7 +5,7 @@ A Docker environment to get started with [indexed.xyz](https://www.indexed.xyz).
 Start syncing data:
 
 ```
-docker run -v $(pwd):/var/opt/indexed-xyz -it goldskycom/indexed.xyz:latest goldsky indexed sync decoded-logs
+docker run -v $(pwd):/var/opt/indexed-xyz -it goldsky/indexed.xyz:latest goldsky indexed sync decoded-logs
 ```
 
 Processed data is available in a `./data` directory in your current working directory.
@@ -13,7 +13,7 @@ Processed data is available in a `./data` directory in your current working dire
 To learn more about the available commands, please run the following:
 
 ```
-docker run -v $(pwd):/var/opt/indexed-xyz -it goldskycom/indexed.xyz:latest goldsky indexed --help
+docker run -v $(pwd):/var/opt/indexed-xyz -it goldsky/indexed.xyz:latest goldsky indexed --help
 ```
 
 ## DuckDB
@@ -21,7 +21,7 @@ docker run -v $(pwd):/var/opt/indexed-xyz -it goldskycom/indexed.xyz:latest gold
 Synced data (see previous chapter) can be queried with [DuckDB](https://duckdb.org/) (or any tool of your choice that processes `.parquet` files):
 
 ```
-docker run -v $(pwd):/var/opt/indexed-xyz -it goldskycom/indexed.xyz:latest duckdb
+docker run -v $(pwd):/var/opt/indexed-xyz -it goldsky/indexed.xyz:latest duckdb
 ```
 
 ## Development
@@ -29,13 +29,13 @@ docker run -v $(pwd):/var/opt/indexed-xyz -it goldskycom/indexed.xyz:latest duck
 ### Build
 
 ```
-docker build -t goldskycom/indexed.xyz:latest .
+docker build -t goldsky/indexed.xyz:latest .
 ```
 
 ### Start a container and access it
 
 ```
-docker run -it goldskycom/indexed.xyz:latest bash
+docker run -it goldsky/indexed.xyz:latest bash
 ```
 
 ### Deploy
